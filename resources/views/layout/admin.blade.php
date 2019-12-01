@@ -110,8 +110,8 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="{{route('dashboard')}}">
-            <i class="ni ni-single-02 text-primary"></i> User 
+            <a class="nav-link" href="{{route('data')}}">
+            <i class="ni ni-mobile-button text-primary"></i> Data Case 
             </a>
           </li>
 

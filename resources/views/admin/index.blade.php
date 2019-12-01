@@ -1,5 +1,6 @@
 @extends('layout.admin')
 @section('content')
+@section('title', 'Dashboard')
 
 <!-- Header -->
 <div class="header bg-gradient-primary pb-4 pt-3 pt-md-4">
@@ -25,9 +26,11 @@
                       </span>
                     </div>
                     <div class="col-auto">
+                    <a href="{{route('create')}}">
                       <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
-                        <i class="fas fa-users"></i>
+                        <i class="ni ni-mobile-button"></i>
                       </div>
+                    </a>  
                     </div>
                   </div>
                   
@@ -100,13 +103,16 @@
     <!-- Page content -->
 <div class="container mt-2">
   <div class="main-content">
-                  @if(session('notice'))
-                        <div class="alert alert-default">
-                                <strong>{!!session('notice') !!}</strong>
-                        </div>
-                  @endif
-
-                  <div class="row justify-content-center">
+              @if(session('notice'))
+                  <div class="alert alert-default alert-dismissible fade show" role="alert">
+                      <span class="alert-inner--text"><strong>Selamat! </strong> {!!session('notice') !!}</span>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                @endif
+                          
+  <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header"><h3>List Case</h3></div>
@@ -119,11 +125,26 @@
 
                   <div class="card-body">
                     <h2 class="card-title">{{$case->judul}}</h2>
-                    <a href="#" class="btn btn-primary">Apply</a>
-                    <a href="{{ route('edit.case', $case->id) }}" class="btn btn-info">Edit</a>
+
+                  <form action="{{ route('admin.destroy', $case->id) }}" method="POST">  
+                    {{ csrf_field() }} {{ method_field('delete') }}  
+                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="{{ route('edit.case', $case->id) }}" class="btn btn-info">
+                    <i class="ni ni-settings"></i></a>
+
+                    <button class="btn btn-danger" type="submit"
+                      onclick="return confirm('Apa Anda Yakin?')">
+                      <i class="ni ni-button-power"></i>
+                    </buttton>
+                  </form>
                   </div>
                 </div>
+                  <div class="mb-2">
+                </div>
               </div>
+
+             
+
               @endforeach
 
 @endsection

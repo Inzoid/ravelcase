@@ -14,7 +14,10 @@
 
 Route::get('/', 'CaseController@index')->name('home');
 
+Route::resource('admin', 'AdminController');
+
 Route::get('admin', 'AdminController@index')->name('dashboard');
 Route::get('create', 'AdminController@create')->name('create');
+Route::get('show', 'AdminController@show')->name('data');
 Route::post('create', 'AdminController@store')->name('create.case');
 Route::post('edit', 'AdminController@edit')->name('edit.case');
