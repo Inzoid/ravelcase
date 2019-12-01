@@ -13,8 +13,10 @@ class CreateCasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cases', function (Blueprint $table) {
+        Schema::create('casings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('judul');
+            $table->string('foto');
             $table->timestamps();
         });
     }

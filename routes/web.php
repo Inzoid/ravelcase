@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'CaseController@index')->name('home');
+
+Route::get('admin', 'AdminController@index')->name('dashboard');
+Route::get('create', 'AdminController@create')->name('create');
+Route::post('create', 'AdminController@store')->name('create.case');
+Route::post('edit', 'AdminController@edit')->name('edit.case');
