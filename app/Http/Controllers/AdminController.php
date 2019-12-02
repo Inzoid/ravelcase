@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Casing;
 use Session;
 use DB;
+use File;
 
 class AdminController extends Controller
 {
@@ -13,12 +14,12 @@ class AdminController extends Controller
     public function index()
     {
         $casing = Casing::all();
-        $casing = Casing::paginate(5);
+        $casing = Casing::paginate(6);
         $table = DB::table('casings')
                 ->orderBy('created_at', 'desc')
                 ->first();
         $last_row = DB::table('casings')->latest()->first();
-        return view('admin.index', compact('casing','last_row'));
+        return view('admin.index', compact('casing'));
     }
 
     public function create()
@@ -50,18 +51,42 @@ class AdminController extends Controller
 
     public function show()
     {
-        $casing = Casing::all()->latest();
+        $casing = Casing::all();
         return view('admin.table')->with('casing', $casing);
     }
 
     public function edit($id)
     {
-        //
+       $casing = Casing::find($id);
+       return view('admin.edit')->with('casing', $casing);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $pathImage = 'images/casing/';  
+        $casing = Casing::find($id);
+        $image = public_path("images/casing/" . $casing->foto);
+
+        if($request->foto) {
+            $foto = 'case-update' . str_random(3).time()
+            . '.' . $request->file('foto')->getClientOriginalExtension();
+            
+            $request->foto->move(public_path('images/casing/'), $foto);
+            $casing->foto = $foto;
+        }
+
+        if (File::exists($image)) {
+            unlink($image);
+        }
+        $judul = $request->get('judul');
+        
+        $casing->judul = $judul;
+        $casing->save(); 
+
+       
+
+        Session::flash('notice', 'Case berhasil diupdate');
+        return redirect()->route("dashboard");
     }
 
     public function destroy($id)

@@ -71,8 +71,8 @@
         <div class="navbar-collapse-header d-md-none">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="./index.html">
-                <img src="/assets/img/brand/blue.png" width="400" height="200"> 
+              <a href="{{ route('dashboard') }}">
+                <img src="/assets/img/brand/blue.png"> 
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -115,6 +115,11 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('home')}}">
+            <i class="ni ni-spaceship text-primary"></i> Web 
+            </a>
+          </li>
           
           <li class="nav-item">
             <a class="nav-link" href="">
