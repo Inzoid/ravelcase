@@ -89,22 +89,20 @@
           <div class="card-body">
             <div class="row">
             @foreach($casing as $case)
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <div class="card">
-                <img class="card-img-top" src="{{$case->foto() }}" width="70" alt="Card image cap">
-
+                <img class="card-img-top" src="{{$case->foto() }}" width="70">
                   <div class="card-body">
                     <h2 class="card-title">{{$case->judul}}</h2>
-
                   <form action="{{ route('admin.destroy', $case->id) }}" method="POST">  
                     {{ csrf_field() }} {{ method_field('delete') }}  
-                    <a href="#" class="btn btn-primary">Detail</a>
-                    <a href="{{ route('edit.case', $case->id) }}" class="btn btn-info">
-                    <i class="ni ni-settings"></i></a>
+                    <a href="/show" class="btn btn-primary btn-sm">Lihat</a>
+                    <a href="{{ route('edit.case', $case->id) }}" class="btn btn-warning btn-sm">
+                    <i class="ni ni-settings-gear-65"></i></a>
 
-                    <button class="btn btn-danger" type="submit"
+                    <button class="btn btn-danger btn-sm" type="submit"
                       onclick="return confirm('Apa Anda Yakin?')">
-                      <i class="ni ni-button-power"></i>
+                      <i class="fa fa-trash"></i>
                     </buttton>
                   </form>
                   </div>
@@ -112,7 +110,7 @@
                   <div class="mb-2">
                 </div>
               </div>
-              @endforeach
+            @endforeach
             
             {!! $casing->links() !!}
 

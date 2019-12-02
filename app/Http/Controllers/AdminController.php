@@ -14,7 +14,7 @@ class AdminController extends Controller
     public function index()
     {
         $casing = Casing::all();
-        $casing = Casing::paginate(6);
+        $casing = Casing::paginate(8);
         $table = DB::table('casings')
                 ->orderBy('created_at', 'desc')
                 ->first();

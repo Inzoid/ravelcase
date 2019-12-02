@@ -25,7 +25,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Judul Case</label>
-                        <input type="text" name="judul" class="form-control form-control-alternative" placeholder="title">
+                        <input type="text" name="judul" class="form-control form-control-alternative" placeholder="Title">
                       </div>
                     </div>
                   </div>

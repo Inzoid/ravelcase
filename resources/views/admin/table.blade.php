@@ -15,14 +15,17 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Image</th>
                     <th scope="col">Option</th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php $no=1; ?>       
                   @foreach ($casing as $a)
                   <tr>
+                  <td>{{$no++}}</td>
                     <th scope="row">
                         <div class="media-body">
                           <span class="mb-0 text-sm">{{$a->judul}} </span>
@@ -31,7 +34,7 @@
                     </th>
 
                     <td>
-                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$a->first_name}}">
+                    <a href="{{ route('edit.case', $a->id) }}" class="avatar avatar-lg" data-toggle="tooltip" data-original-title="{{$a->first_name}}">
                           <img src="{{$a->foto()}}" class="rounded">
                         </a>
                       
@@ -49,5 +52,6 @@
           </button>
         </form>
       </td>
-                @endforeach
+      @endforeach
+  
 @endsection
