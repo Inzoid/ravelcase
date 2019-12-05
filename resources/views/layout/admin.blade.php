@@ -116,6 +116,12 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{{route('testimoni')}}">
+            <i class="ni ni-album-2 text-primary"></i> Testimoni 
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{route('home')}}">
             <i class="ni ni-spaceship text-primary"></i> Web 
             </a>

@@ -43,10 +43,10 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">User</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Testimoni</h5>
                       <span class="h2 font-weight-bold mb-0">
-                      <?php  $conn = new mysqli('localhost', 'root', '', 'job');
-                        $sqlCommand = "SELECT COUNT(*) FROM users"; 
+                      <?php  $conn = new mysqli('localhost', 'root', '', 'ravel');
+                        $sqlCommand = "SELECT COUNT(*) FROM testis"; 
                         $query = mysqli_query($conn, $sqlCommand) or die (mysqli_error()); 
                         $row = mysqli_fetch_row($query);
                         echo $row[0];
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
-                        <i class="ni ni-bell-55"></i>
+                        <i class="ni ni-money-coins"></i>
                       </div>
                     </div>
                   </div>

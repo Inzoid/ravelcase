@@ -15,6 +15,7 @@ class CaseController extends Controller
     public function index()
     {
         $casing = Casing::all();
+        $casing = Casing::paginate(8);
         return view('home.index')->with('casing', $casing);
     }
 

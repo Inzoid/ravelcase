@@ -83,8 +83,6 @@ class AdminController extends Controller
         $casing->judul = $judul;
         $casing->save(); 
 
-       
-
         Session::flash('notice', 'Case berhasil diupdate');
         return redirect()->route("dashboard");
     }

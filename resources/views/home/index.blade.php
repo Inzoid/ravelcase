@@ -36,4 +36,7 @@
             </div>
           </div>
         @endforeach
+      
+        {!! $casing->links() !!}
+
 @endsection
