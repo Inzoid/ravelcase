@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Casing;
 use App\Testi;
 use Session;
+use File;
 
 class TestiController extends Controller
 {
@@ -50,11 +51,34 @@ class TestiController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $pathImage = 'images/testimoni/';  
+        $testi = Testi::find($id);
+        $image = public_path("images/testimoni/" . $testi->foto);
+
+        if($request->foto) {
+            $foto = 'testi-update' . str_random(3).time()
+            . '.' . $request->file('foto')->getClientOriginalExtension();
+            
+            $request->foto->move(public_path('images/testimoni/'), $foto);
+            $testi->foto = $foto;
+        }
+
+        if (File::exists($image)) {
+            unlink($image);
+        }
+        $judul = $request->get('judul');
+        
+        $testi->judul = $judul;
+        $testi->save(); 
+
+        Session::flash('notice', 'Testi berhasil diupdate');
+        return redirect()->route("testimoni");
     }
 
     public function destroy($id)
     {
-        //
+        Testi::destroy($id);
+        Session::flash('notice', 'Testi Berhasil Dihapus');
+        return redirect()->route("testimoni");
     }
 }

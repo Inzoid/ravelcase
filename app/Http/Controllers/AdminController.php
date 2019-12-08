@@ -5,20 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Casing;
 use Session;
-use DB;
 use File;
 
 class AdminController extends Controller
 {
 
-    public function index()
-    {
+    public function index(Request $request)
+    {   
         $casing = Casing::all();
-        $casing = Casing::paginate(8);
-        $table = DB::table('casings')
-                ->orderBy('created_at', 'desc')
-                ->first();
-        $last_row = DB::table('casings')->latest()->first();
+        $casing = Casing::orderBy('created_at', 'desc')->paginate(8);
         return view('admin.index', compact('casing'));
     }
 
@@ -52,6 +47,7 @@ class AdminController extends Controller
     public function show()
     {
         $casing = Casing::all();
+        $casing = Casing::orderBy('created_at', 'desc')->paginate(8);
         return view('admin.table')->with('casing', $casing);
     }
 
