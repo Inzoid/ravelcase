@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Casing;
+use App\Testi;
 
 class CaseController extends Controller
 {
@@ -15,8 +16,9 @@ class CaseController extends Controller
     public function index()
     {
         $casing = Casing::all();
-        $casing = Casing::paginate(8);
-        return view('home.index')->with('casing', $casing);
+        $testi  = Testi::all();
+        $casing = Casing::orderBy('created_at', 'desc')->paginate(8);
+        return view('home.index',compact('casing', 'testi'));
     }
 
     /**

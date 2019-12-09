@@ -1,8 +1,9 @@
 <?php
 
-
+//home user
 Route::get('/', 'CaseController@index')->name('home');
 
+//dashboard admin
 Route::resource('admin', 'AdminController');
 Route::get('admin', 'AdminController@index')->name('dashboard');
 Route::get('create', 'AdminController@create')->name('create');
@@ -11,6 +12,7 @@ Route::get('show', 'AdminController@show')->name('data');
 Route::get('edit/{id}', 'AdminController@edit')->name('edit.case');
 Route::put('edit/{id}', 'AdminController@update')->name('update.case');
 
+//crud testimoni
 Route::resource('testi', 'TestiController');
 Route::get('testimoni', 'TestiController@index')->name('testimoni');
 Route::get('create.testi', 'TestiController@create')->name('create.testi');
