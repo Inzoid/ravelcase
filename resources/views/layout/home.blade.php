@@ -68,7 +68,7 @@
             <li class="nav-item"><a href="#case" class="nav-link">Case Terlaris</a></li>
             <li class="nav-item"><a href="#testimoni" class="nav-link">Testimoni</a></li>
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="{{route('login')}}" class="nav-link">Login</a></li>
           </ul>
         </div>
       </div>

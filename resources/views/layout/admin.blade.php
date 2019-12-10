@@ -128,7 +128,7 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('signup')}}">
               <i class="ni ni-circle-08 text-primary"></i> Register
             </a>
           </li>
@@ -164,7 +164,7 @@
               <div class="media align-items-center">
                 
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">Logout</span>
+                  <span class="mb-0 text-sm  font-weight-bold">Welcome</span>
                 </div>
               </div>
             </a>
@@ -178,7 +178,7 @@
               </a>
              
               <div class="dropdown-divider"></div>
-              <a href="" class="dropdown-item">
+              <a href="{{route('logout')}}" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
