@@ -22,3 +22,23 @@ $('.search-text').on('keyup', function() {
     });
 });
 
+$('.search-text').on('keyup', function() {
+    $.ajax({
+            url: '/show',
+            type: 'GET',
+        dataType: 'json',
+        data : {
+            'search': $('.search-text').val()
+        },
+        success:function (data) {
+            $('.data_case').html(data['view']);
+            console.log(data);
+        },
+        error: function(xhr, status) {
+            console.log(xhr.error + " ERROR STATUS : " + status);
+        },
+        complete: function () {
+            alreadyloading = false;
+        }
+    });
+});

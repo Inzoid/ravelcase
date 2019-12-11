@@ -50,9 +50,15 @@ class AdminController extends Controller
 
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        $casing = Casing::all();
+        if ($request->ajax()) {
+            $casing = Casing::where('judul', 'like', '%' . $request->search . '%')->orderBy
+                ('created_at', 'desc')->paginate(4);
+            $view = (String) view('admin.data')->with('casing',
+                $casing)->render();
+            return response()->json(['view' => $view, 'status' => 'success']);
+        }
         $casing = Casing::orderBy('created_at', 'desc')->paginate(8);
         return view('admin.table')->with('casing', $casing);
     }

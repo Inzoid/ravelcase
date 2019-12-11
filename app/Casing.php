@@ -18,7 +18,7 @@ class Casing extends Model
             //jika ada tampilkan gambar defaullt
             return '/images/casing/' . $this->foto;
         } else {
-            return url('/img/def-up.jpg');
+            return url('/images/casing/default.png');
         }
     }
 }

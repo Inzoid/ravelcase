@@ -58,9 +58,9 @@
             </a>
            
             <div class="dropdown-divider"></div>
-            <a href="" class="dropdown-item">
+            <a href="{{route('logout')}}" class="dropdown-item">
               <i class="ni ni-user-run"></i>
-              <span>logout.admin</span>
+              <span>Logout</span>
             </a>
           </div>
         </li>
@@ -83,10 +83,7 @@
             </div>
           </div>
         </div>
-        <!-- Form -->
-        <form class="mt-4 mb-3 d-md-none">
-          
-        </form>
+        
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -119,21 +116,17 @@
             <i class="ni ni-spaceship text-primary"></i> Web 
             </a>
           </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('signup')}}">
-              <i class="ni ni-circle-08 text-primary"></i> Register
-            </a>
-          </li>
 
-          <div class="input-group input-group-rounded input-group-merge mt-2">
-            <input type="search" id="search" class="search-text form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
+          <li class="nav-item">
+            <div class="input-group input-group-rounded input-group-merge mt-2">
+              <input type="search" id="search" class="search-text form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
                 <span class="fa fa-search"></span>
               </div>
             </div>
-          </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -155,7 +148,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-search"></i></span>
               </div>
-              <input class="search-text form-control" id="search" placeholder="Search" type="text">
+              <input type="search" id="search-case" class="search-case form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
             </div>
           </div>
         </form>
