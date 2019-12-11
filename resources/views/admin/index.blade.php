@@ -88,9 +88,9 @@
         <div class="card-header"><h3>List Case</h3></div>
           <div class="card-body">
 
-            <div class="list-case row">
-              @include('admin.list')
-            </div>
+          <div class="list_case row">
+            @include('admin.list')
+          </div>
             
             <div class="container">
               {{$casing->links()}}

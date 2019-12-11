@@ -12,9 +12,15 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {   
-        $casing = Casing::all();
+        if ($request->ajax()) {
+            $casing = Casing::where('judul', 'like', '%' . $request->search . '%')->orderBy
+                ('created_at', 'desc')->paginate(4);
+            $view = (String) view('admin.list')->with('casing',
+                $casing)->render();
+            return response()->json(['view'=> $view, 'status' => 'success']);
+        }
         $casing = Casing::orderBy('created_at', 'desc')->paginate(8);
-        return view('admin.index', compact('casing'));
+        return view('admin.index')->with('casing', $casing);
     }
 
     public function create()
