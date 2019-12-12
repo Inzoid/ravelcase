@@ -33,6 +33,22 @@
                
                 <div class="pl-lg-4">
                   <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                      <label for="kategori_id">Kategori</label>
+                        <select class="form-control form-control-alternative" name="kategori_id" id="kategori_id">
+                          <option value="">Pilih Kategori</option>
+                          @foreach( $category as $data )
+                          <option value="{{ $data->id }}"> {{ $data->nama_kategori }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="pl-lg-4">
+                  <div class="row">
                   <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Image</label>

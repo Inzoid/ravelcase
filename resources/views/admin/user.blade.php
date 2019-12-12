@@ -1,38 +1,31 @@
+@extends('layout.admin')
+@section('content')
+@section('title', 'Data User')
+
 <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">E-Mail</th>
                     <th scope="col">Option</th>
                   </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; ?>       
-                  @foreach ($casing as $a)
+                  @foreach ($user as $a)
                   <tr>
                   <td>{{$no++}}</td>
                     <th scope="row">
                         <div class="media-body">
-                          <span class="mb-0 text-sm">{{$a->judul}} </span>
+                          <span class="mb-0 text-sm">{{$a->first_name}} {{$a->last_name}} </span>
                         </div>
                       </div>
                     </th>
 
-                    <td scope="row">
-                        <div>
-                          <span class="mb-0 text-sm">{{$a->category['nama_kategori']}}</span>
-                        </div>
-                      </div>
-                    </td>
-
                     <td>
-                    <a href="{{ route('edit.case', $a->id) }}" class="avatar avatar-lg" data-toggle="tooltip" data-original-title="{{$a->first_name}}">
-                          <img src="{{$a->foto()}}" class="rounded">
-                        </a>
-                      
+                        {{$a->email}}
                     </td>
 
       <td>
@@ -48,3 +41,4 @@
         </form>
       </td>
       @endforeach
+@endsection

@@ -44,7 +44,7 @@
           <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="./assets/img/theme/team-1-800x800.jpg">
+                <img alt="Image placeholder" src="/assets/img/theme/team-1-800x800.jpg">
               </span>
             </div>
           </a>
@@ -52,7 +52,7 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="./examples/profile.html" class="dropdown-item">
+            <a href="/examples/profile.html" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
             </a>
@@ -88,13 +88,13 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="{{route('dashboard')}}">
-              <i class="ni ni-tv-2 text-primary"></i> Dashboard
+              <i class="ni ni-planet text-primary"></i> Dashboard
             </a>
           </li>
           
           
           <li class="nav-item">
-            <a class="nav-link" href=" {{route('dashboard')}} ">
+            <a class="nav-link" href=" {{route('user')}} ">
             <i class="ni ni-badge text-primary"></i> Admin 
             </a>
           </li>
@@ -102,6 +102,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('data')}}">
             <i class="ni ni-mobile-button text-primary"></i> Data Case 
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('kategori')}}">
+            <i class="ni ni-folder-17 text-primary"></i> Kategori
             </a>
           </li>
 
@@ -205,9 +211,6 @@
   <script src="js/custom.js"></script>
   <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Optional JS -->
-  <script src="./assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="./assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="./assets/js/argon.js?v=1.0.0"></script>
 </body>

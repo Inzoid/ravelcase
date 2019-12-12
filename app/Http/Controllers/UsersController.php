@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Sentinel;
 use Session;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -27,5 +28,18 @@ class UsersController extends Controller
         $user = Sentinel::registerAndActivate($credentials);
         Session::flash('notice', 'Akun berhasil dibuat');
         return redirect()->route('login');
+    }
+
+    public function index()
+    {
+        $user = User::all();
+        return view('admin.user', compact('user'));
+    }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+        Session::flash('notice', 'Delete Berhasil');
+        return view('admin.user');
     }
 }

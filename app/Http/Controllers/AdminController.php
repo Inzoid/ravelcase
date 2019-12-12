@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Casing;
+use App\Category;
 use Session;
 use File;
 
@@ -19,13 +20,18 @@ class AdminController extends Controller
                 $casing)->render();
             return response()->json(['view'=> $view, 'status' => 'success']);
         }
+        $kategori = Category::all();
         $casing = Casing::orderBy('created_at', 'desc')->paginate(8);
         return view('admin.index')->with('casing', $casing);
     }
 
     public function create()
     {
-        return view('admin.create');
+        $casing = Casing::all();
+        $category = Category::all();
+        return view('admin.create')
+        ->with('casing', $casing)
+        ->with('category', $category);
     }
 
     public function store(Request $request)
@@ -42,7 +48,9 @@ class AdminController extends Controller
         }
 
         $judul = $request->input('judul');
+        $kategori_id = $request->input('kategori_id');
         $casing->judul = $judul;
+        $casing->kategori_id = $kategori_id;
         $casing->save();
 
         Session::flash('notice', 'Case berhasil dibuat');

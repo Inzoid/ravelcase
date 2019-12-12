@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Category;
 
 class Casing extends Model
 {
     protected $fillable = [
-        'judul','foto',
+        'judul','foto','kategori_id',
     ];
 
     public function foto() {
@@ -20,6 +21,11 @@ class Casing extends Model
         } else {
             return url('/images/casing/default.png');
         }
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'kategori_id');
     }
 }
 
